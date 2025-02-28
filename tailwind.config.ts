@@ -11,6 +11,10 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "#6621BA",
+        secondary: "#29FFAF",
+        purpleots: "#5B67FF",
+        brightpurple:"#F0F2FF",
       },
     },
   },
