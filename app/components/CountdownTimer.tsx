@@ -19,7 +19,12 @@ const CountdownTimer = ({ targetDate }) => {
 
   function calculateTimeLeft() {
     const difference = +new Date(targetDate) - +new Date();
-    let timeLeft = {};
+    let timeLeft = {
+      dní: 0,
+      hodin: 0,
+      minut: 0,
+      sekund: 0,
+    };
 
     if (difference > 0) {
       timeLeft = {
