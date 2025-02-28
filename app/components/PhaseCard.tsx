@@ -8,9 +8,9 @@ interface PhaseCardProps {
 const PhaseCard: React.FC<PhaseCardProps> = ({ title, detail }) => {
   return (
 <motion.div
-      initial={{ opacity: 0, x: -200 }}  // Pouze pozice vlevo, bez změny velikosti
+      initial={{ opacity: 0, x: 900 }}  // Pouze pozice vlevo, bez změny velikosti
       animate={{ opacity: 1, x: 0 }}     // Přesun na střed, bez změny velikosti
-      exit={{ opacity: 0, x: 200 }}      // Přesun doprava, bez změny velikosti
+      exit={{ opacity: 0, x: -200 }}      // Přesun doprava, bez změny velikosti
       transition={{ 
         duration: 0.6,             // Přiměřená doba trvání
         ease: "easeInOut",         // Plynulá křivka zrychlení a zpomalení
