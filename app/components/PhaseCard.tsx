@@ -12,7 +12,7 @@ const PhaseCard: React.FC<PhaseCardProps> = ({ title, detail }) => {
       animate={{ opacity: 1, x: 0 }}     // Přesun na střed, bez změny velikosti
       exit={{ opacity: 0, x: -200 }}      // Přesun doprava, bez změny velikosti
       transition={{ 
-        duration: 0.6,             // Přiměřená doba trvání
+        duration: 0.2,             // Přiměřená doba trvání
         ease: "easeInOut",         // Plynulá křivka zrychlení a zpomalení
         type: "tween"              // Lineární typ animace místo spring pro stabilnější pohyb
       }}

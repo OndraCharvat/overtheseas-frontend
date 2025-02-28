@@ -30,12 +30,12 @@ const ProcessMap = () => {
   return (
     <div {...handlers} className="relative mt-8 rounded-2xl w-full max-w-4xl p-8 text-center bg-brightpurple">
       <h2 className="text-2xl font-bold mb-4">Mapa procesu</h2>
-      <div className="flex items-center justify-center gap-4">
+      <div className="flex items-center justify-center gap-20">
         <button onClick={prevPhase} className="p-2 rounded-full bg-gray-200 hover:bg-secondary transition">
           <ChevronLeft size={32} />
         </button>
-        <div className="relative w-64 h-40 flex justify-center items-center overflow-hidden">
-          <AnimatePresence mode="popLayout">
+        <div className="relative w-80 h-60 flex justify-center items-center">
+          <AnimatePresence mode="wait">
             <PhaseCard key={phases[index].id} title={phases[index].title} detail={phases[index].detail} />
           </AnimatePresence>
         </div>
