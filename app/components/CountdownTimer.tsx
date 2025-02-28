@@ -43,9 +43,9 @@ const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
   }
 
   return (
-    <div className=" relative p-4 bg-white rounded-lg shadow-md">
-      <h3 className="text-lg font-semibold">Odlet do Kanady za:</h3>
-      <p className="text-xl">{timeLeft.dní}d {timeLeft.hodin}h {timeLeft.minut}m {timeLeft.sekund}s</p>
+    <div className="relative mt-12 p-6 bg-brightpurple rounded-lg text-center shadow-md">
+      <h3 className="text-lg font-bold tracking-[-0.02em]">Odlet do Kanady za:</h3>
+      <p className="text-xl text-secondary font-bold">{timeLeft.dní}d {timeLeft.hodin}h {timeLeft.minut}m {timeLeft.sekund}s</p>
     </div>
   );
 };

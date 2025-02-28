@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import PhaseCard from "./PhaseCard";
 
 const phases = [
@@ -16,7 +17,7 @@ const phases = [
 ];
 
 const ProcessMap = () => {
-  const [index, setIndex] = useState(2);
+  const [index, setIndex] = useState(0);
 
   const nextPhase = () => setIndex((prev) => (prev + 1) % phases.length);
   const prevPhase = () => setIndex((prev) => (prev - 1 + phases.length) % phases.length);
@@ -43,11 +44,13 @@ const ProcessMap = () => {
           <ChevronRight size={32} />
         </button>
       </div>
+      <Link href="/section">
       <button className="mt-4 px-6 py-2 bg-purpleots text-white rounded-lg hover:bg-secondary transition">
         Přejít na detaily
       </button>
+      </Link>
     </div>
-  );
+  );  
 };
 
 export default ProcessMap;

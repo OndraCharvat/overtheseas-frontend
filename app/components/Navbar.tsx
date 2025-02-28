@@ -7,11 +7,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className=" flex items-center justify-between p-4 bg-white shadow-md">
+    <nav className="flex items-center justify-between p-4 bg-white shadow-md">
       {/* Logo jako tlačítko */}
       <Link href="/" className="text-xl font-bold">
-        <span className="font-black">overtheseas</span>
-        <span className="text-sm text-gray-400" >.students portfolio</span>
+        <span className="font-black tracking-[-0.05em]">overtheseas</span>
+        <span className="text-sm text-gray-400 tracking-[-0.05em]" >.students portfolio</span>
       </Link>
 
       {/* Mobilní menu tlačítko */}
