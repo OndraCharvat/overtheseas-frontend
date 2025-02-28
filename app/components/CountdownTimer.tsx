@@ -1,7 +1,11 @@
 "use client"
 import { useState, useEffect } from 'react';
 
-const CountdownTimer = ({ targetDate }) => {
+interface CountdownTimerProps {
+  targetDate: string;
+}
+
+const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
   const [timeLeft, setTimeLeft] = useState({
     dní: 0,
     hodin: 0,
