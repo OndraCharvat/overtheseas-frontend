@@ -1,9 +1,8 @@
 import TaskSection from "./components/TaskSection";
 import WelcomeMessage from "./components/WelcomeMessage";
 import ProcessMap from "./components/ProcessMap";
-import { Sidebar } from "lucide-react";
-import CountdownTimer from "./components/CountdownTimer";
-import ProgressBar from "./components/ProgressBar";
+import  Sidebar  from "./components/Sidebar";
+
 
 export default function Home() {
   return (
@@ -14,11 +13,8 @@ export default function Home() {
       <ProcessMap />
       </div>
 
-      <div className="flex flex-col mr-12 mt-2 gap-4 md:w-1/4">
-      <CountdownTimer targetDate="2025-09-01T00:00:00" />
-      <ProgressBar progress={50} />
+      <div className="flex flex-col p-12 md:flex-row">
       <Sidebar />
-      {/* Další obsah stránky */}
       </div>
     </main>
   );
