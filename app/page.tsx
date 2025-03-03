@@ -17,7 +17,7 @@ export default function Home() {
       <div className="flex flex-col mr-12 mt-2 gap-4 md:w-1/4">
       <CountdownTimer targetDate="2025-09-01T00:00:00" />
       <ProgressBar progress={50} />
-      <Sidebar size={32} />
+      <Sidebar />
       {/* Další obsah stránky */}
       </div>
     </main>
