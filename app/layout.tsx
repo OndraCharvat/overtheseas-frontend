@@ -27,7 +27,7 @@ export default function RootLayout({
       <head>
       <link rel="icon" href="/ots-logo.png" sizes="32x32" type="image/x-icon" />
       </head>
-      <body>
+      <body className="bg-[#DFE2FF]">
       <Navbar />
         {children}
       </body>
