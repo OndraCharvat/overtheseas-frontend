@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Navbar from "./components/Navbar";
+import NavbarWrapper from "./components/NavbarWrapper";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"], // Vyber potřebné varianty
-  variable: "--font-poppins", // Definuje CSS proměnnou
+  weight: ["300", "400", "600", "700"],
+  variable: "--font-poppins", 
 });
 
 export const metadata: Metadata = {
@@ -24,11 +25,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={poppins.variable}>
-      <head>
-      <link rel="icon" href="/ots-logo.png" sizes="32x32" type="image/x-icon" />
-      </head>
-      <body className="bg-[#DFE2FF]">
-      <Navbar />
+      <body>
+      <NavbarWrapper />
         {children}
       </body>
     </html>

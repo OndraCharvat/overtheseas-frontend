@@ -1,7 +1,7 @@
 import TaskSection from "./components/TaskSection";
 import WelcomeMessage from "./components/WelcomeMessage";
 import ProcessMap from "./components/ProcessMap";
-import  Sidebar  from "./components/Sidebar";
+import Sidebar  from "./components/Sidebar";
 
 
 export default function Home() {
