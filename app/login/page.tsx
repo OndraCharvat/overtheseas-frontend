@@ -69,7 +69,7 @@ const LoginPage: React.FC = () => {
       {/* Background and Decorative Elements */}
       <div className="hidden lg:block lg:w-1/2 relative bg-white overflow-hidden">
         <motion.div 
-          className="absolute top-10 right-10 w-40 h-40 rounded-full"
+          className="absolute top-10 right-10 w-60 h-60 rounded-full"
           animate={{
             rotate: [0, 4, 0],
             scale: [1, 1.05, 1]
@@ -88,7 +88,7 @@ const LoginPage: React.FC = () => {
           />
           </motion.div>
         <motion.div 
-          className="absolute bottom-10 left-10 w-40 h-40 rounded-tr-full"
+          className="absolute bottom-10 left-10 w-60 h-60 rounded-tr-full"
           animate={{
             rotate: [0, -4, 0],
             scale: [1, 1.05, 1]
@@ -108,7 +108,7 @@ const LoginPage: React.FC = () => {
           </motion.div> 
 
           <motion.div 
-          className="absolute top-60 left-40 w-40 h-40 rounded-tr-full"
+          className="absolute top-40 left-40 w-60 h-60 rounded-tr-full"
           animate={{
             rotate: [0, -4, 0],
             scale: [1, 1.05, 1]
