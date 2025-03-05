@@ -69,13 +69,13 @@ const LoginPage: React.FC = () => {
       {/* Background and Decorative Elements */}
       <div className="hidden lg:block lg:w-1/2 relative bg-white overflow-hidden">
         <motion.div 
-          className="absolute top-10 right-10 w-60 h-60 rounded-full"
+          className="absolute top-20 right-20 w-60 h-60 rounded-full"
           animate={{
             rotate: [0, 4, 0],
-            scale: [1, 1.05, 1]
+            scale: [1.4, 1.05, 1.4]
           }}
           transition={{
-            duration: 6,
+            duration: 11,
             repeat: Infinity,
             repeatType: 'reverse'
           }}
@@ -88,13 +88,13 @@ const LoginPage: React.FC = () => {
           />
           </motion.div>
         <motion.div 
-          className="absolute bottom-10 left-10 w-60 h-60 rounded-tr-full"
+          className="absolute bottom-20 left-20 w-60 h-60 rounded-tr-full"
           animate={{
             rotate: [0, -4, 0],
-            scale: [1, 1.05, 1]
+            scale: [1.4, 1.05, 1.4]
           }}
           transition={{
-            duration: 6,
+            duration: 13,
             repeat: Infinity,
             repeatType: 'reverse'
           }}
@@ -108,13 +108,13 @@ const LoginPage: React.FC = () => {
           </motion.div> 
 
           <motion.div 
-          className="absolute top-40 left-40 w-60 h-60 rounded-tr-full"
+          className="absolute top-20 left-20 w-60 h-60 rounded-tr-full"
           animate={{
             rotate: [0, -4, 0],
-            scale: [1, 1.05, 1]
+            scale: [1.4, 1.05, 1.4]
           }}
           transition={{
-            duration: 6,
+            duration: 10,
             repeat: Infinity,
             repeatType: 'reverse'
           }}
@@ -126,6 +126,27 @@ const LoginPage: React.FC = () => {
             objectFit="cover" 
           />
           </motion.div> 
+
+          <motion.div 
+          className="absolute bottom-40 right-40 w-60 h-60 rounded-tr-full"
+          animate={{
+            rotate: [0, -4, 0],
+            scale: [1.4, 1.05, 1.4],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            repeatType: 'reverse'
+          }}
+         >
+            <Image
+            src="/goldengate.png" 
+            alt="goldengate" 
+            layout="fill" 
+            objectFit="cover" 
+          />
+          </motion.div> 
+
       </div>
     </div>
   );
