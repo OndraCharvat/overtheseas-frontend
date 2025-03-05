@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { Library } from 'lucide-react';
+import Link from 'next/link';
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -51,28 +53,29 @@ const LoginPage: React.FC = () => {
                   {passwordVisible ? '👁️' : '🫣'}
                 </button>
               </div>  
+              <Link href="/">
               <button 
                 type="submit" 
                 className="w-full bg-purpleots text-white py-2 rounded-md hover:bg-secondary transition duration-300"
               >
                 Vstoupit
               </button>
+              </Link>
             </form>
           </div>
         </div>
       </div>
 
-      {/* Right Side - Background and Decorative Elements (Desktop Only) */}
+      {/* Background and Decorative Elements */}
       <div className="hidden lg:block lg:w-1/2 relative bg-white overflow-hidden">
-        {/* Fialové obdélníky */}
         <motion.div 
-          className="absolute top-0 right-0 w-96 h-96 bg-purpleots rounded-full"
+          className="absolute top-10 right-10 w-40 h-40 rounded-full"
           animate={{
-            rotate: [0, 5, 0],
-            scale: [1, 1.05, 2]
+            rotate: [0, 4, 0],
+            scale: [1, 1.05, 1]
           }}
           transition={{
-            duration: 5,
+            duration: 6,
             repeat: Infinity,
             repeatType: 'reverse'
           }}
@@ -85,10 +88,10 @@ const LoginPage: React.FC = () => {
           />
           </motion.div>
         <motion.div 
-          className="absolute bottom-0 left-0 w-80 h-80 rounded-tr-full"
+          className="absolute bottom-10 left-10 w-40 h-40 rounded-tr-full"
           animate={{
-            rotate: [0, -20, 0],
-            scale: [2, 1.05, 1]
+            rotate: [0, -4, 0],
+            scale: [1, 1.05, 1]
           }}
           transition={{
             duration: 6,
@@ -103,7 +106,26 @@ const LoginPage: React.FC = () => {
             objectFit="cover" 
           />
           </motion.div> 
-  
+
+          <motion.div 
+          className="absolute top-60 left-40 w-40 h-40 rounded-tr-full"
+          animate={{
+            rotate: [0, -4, 0],
+            scale: [1, 1.05, 1]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            repeatType: 'reverse'
+          }}
+         >
+            <Image
+            src="/palms.png" 
+            alt="Palms" 
+            layout="fill" 
+            objectFit="cover" 
+          />
+          </motion.div> 
       </div>
     </div>
   );
