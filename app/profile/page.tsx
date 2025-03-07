@@ -37,7 +37,7 @@ export default function ProfilePage() {
         </div>
 
       
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-14">
           <input 
             type="text" 
             name="firstName"
