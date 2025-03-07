@@ -17,7 +17,6 @@ const TaskCard: React.FC<TaskCardProps> = ({ title, subtitle, description }) => 
       className="bg-[#5B67FF] text-white rounded-2xl p-6 w-full md:w-64 lg:w-72 shadow-lg cursor-pointer transition-all duration-300"
       onClick={() => setIsOpen(!isOpen)}
     >
-      {/* Titulek a info ikona */}
       <div className="flex justify-between items-center">
         <div>
           <h3 className="text-lg font-bold">{title}</h3>

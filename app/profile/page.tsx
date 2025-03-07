@@ -20,7 +20,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <main className="flex justify-center items-center min-h-screen px-4">
+    <main className="flex justify-center items-center p-12 min-h-screen px-4">
       <div className="w-full max-w-5xl bg-brightpurple p-6 sm:p-24 rounded-2xl shadow-md">
         <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
           <div className="text-center sm:text-left">
@@ -76,12 +76,24 @@ export default function ProfilePage() {
           />
         </div>
 
-        {/* Info o programu */}
-        <div className="p-4 rounded-md bg-white">
-          <h3 className="text-lg font-bold mb-6">Informace o programu</h3>
+ {/* Info o programu */}
+ <div className="p-4 rounded-md mb-12 bg-white">
+          <h3 className="text-lg font-bold mb-6">Informace o programu:</h3>
           <p className="mb-0.5"><strong>Země pobytu:</strong> {userData.country}</p>
           <p className="mb-0.5"><strong>Vízum:</strong> {userData.visa}</p>
           <p className="mb-0.5"><strong>Délka:</strong> {userData.duration}</p>
+        </div>
+        <div className="p-4 rounded-md bg-white">
+          <h3 className="text-lg font-bold mb-6">O studentovi:</h3>
+          <input 
+            type="O studentovi" 
+            name="o studentovi"
+            placeholder="Napiš něco o sobě" 
+            value={userData.about} 
+            onChange={handleChange}
+            disabled={!isEditing} 
+            className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
+          />
         </div>
       </div>
     </main>
