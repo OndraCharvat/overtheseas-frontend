@@ -13,6 +13,7 @@ export default function ProfilePage() {
     country: "United States of America 🇺🇸",
     visa: "J1",
     duration: "1 rok",
+    about: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
