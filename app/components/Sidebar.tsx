@@ -20,7 +20,7 @@ export default function Dashboard() {
 
        <CountdownTimer targetDate={targetDate} />
 
-      <div className=" bg-brightpurple rounded-2xl p-10 flex flex-col text-center space-y-4">
+      <div className="bg-brightpurple rounded-2xl p-10 flex flex-col text-center space-y-4">
         <div className=" rounded-lg p-4">
           <h3 className="text-lg font-bold tracking-[-0.02em]">Aktuální stav procesu</h3>
           <ProgressBar progress={progress} />
@@ -33,7 +33,6 @@ export default function Dashboard() {
           <div className="flex-1">
             <span className="font-medium tracking-[-0.05em]">Dokumenty</span>
           </div>
-          <ChevronDown className="w-5 h-5 text-gray-400" />
         </Link>
         
         <Link href="/profile" className="flex items-center p-6 bg-white rounded-2xl shadow-sm hover:bg-gray-50 transition-colors">
@@ -43,7 +42,6 @@ export default function Dashboard() {
           <div className="flex-1">
             <span className="font-medium tracking-[-0.05em]">Profil studenta</span>
           </div>
-          <ChevronDown className="w-5 h-5 text-gray-400" />
         </Link>
         
         <Link href="/section" className="flex items-center p-6 bg-white rounded-2xl shadow-sm hover:bg-gray-50 transition-colors">
@@ -53,7 +51,6 @@ export default function Dashboard() {
           <div className="flex-1">
             <span className="font-medium tracking-[-0.05em]">Fázový proces</span>
           </div>
-          <ChevronDown className="w-5 h-5 text-gray-400" />
         </Link>
       </div>
     </div>
