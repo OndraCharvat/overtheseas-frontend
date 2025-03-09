@@ -14,6 +14,8 @@ export default function ProfilePage() {
     visa: "J1",
     duration: "1 rok",
     about: "",
+    school: "Georgetown High School",
+    host:"John Smith",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -80,9 +82,11 @@ export default function ProfilePage() {
  {/* Info o programu */}
  <div className="p-4 rounded-md mb-12 bg-white">
           <h3 className="text-lg font-bold mb-6">Informace o programu:</h3>
-          <p className="mb-0.5"><strong>Země pobytu:</strong> {userData.country}</p>
+          <p className="mb-0.5"><strong>Země Pobytu:</strong> {userData.country}</p>
           <p className="mb-0.5"><strong>Vízum:</strong> {userData.visa}</p>
           <p className="mb-0.5"><strong>Délka:</strong> {userData.duration}</p>
+          <p className="mb-0.5"><strong>Škola:</strong> {userData.school}</p>
+          <p className="mb-0.5"><strong>Host Parent:</strong> {userData.host}</p>
         </div>
         <div className="p-4 rounded-md bg-white">
           <h3 className="text-lg font-bold mb-6">O studentovi:</h3>
