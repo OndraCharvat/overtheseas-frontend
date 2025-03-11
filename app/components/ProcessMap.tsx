@@ -29,26 +29,21 @@ const ProcessMap = () => {
   });
 
   return (
-    <div {...handlers} className="relative mt-8 rounded-2xl w-full max-w-4xl p-8 text-center bg-brightpurple">
+    <div {...handlers} className="relative mt-8 rounded-2xl w-full max-w-4xl p-10 text-center bg-brightpurple">
       <h2 className="text-2xl font-bold mb-4">Mapa procesu</h2>
-      <div className="flex items-center justify-center gap-10">
+      <div className="flex items-center p-8 justify-center gap-10">
         <button onClick={prevPhase} className="hidden sm:flex p-2 rounded-full bg-gray-200 hover:bg-secondary transition">
           <ChevronLeft size={32} />
         </button>
-        <div className="relative w-80 h-60 md:w-80 md:h-60 sm:w-80 sm:h-60 xs:w-40 xs:h-30 flex justify-center items-center overflow-hidden">
+        <Link href={`/section/${phases[index].id}`} className="relative w-80 h-60 md:w-80 md:h-60 sm:w-80 sm:h-60 xs:w-40 xs:h-30 flex rounded-2xl bg-secondary justify-center items-center overflow-hidden">
           <AnimatePresence mode="wait">
             <PhaseCard key={phases[index].id} title={phases[index].title} detail={phases[index].detail} />
           </AnimatePresence>
-        </div>
+        </Link>
         <button onClick={nextPhase} className="hidden sm:flex p-2 rounded-full bg-gray-200 hover:bg-secondary transition">
           <ChevronRight size={32} />
         </button>
       </div>
-      <Link href="/section">
-      <button className="mt-4 px-6 py-2 bg-purpleots text-white rounded-lg hover:bg-secondary transition">
-        Přejít na detaily
-      </button>
-      </Link>
     </div>
   );  
 };
