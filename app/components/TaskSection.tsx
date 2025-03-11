@@ -4,7 +4,7 @@ import TaskCard from "./TaskCard";
 const TaskSection = () => {
   return (
     <section className="mt-12">
-      <h2 className="text-2xl font-extrabold tracking-tight mb-4">
+      <h2 className="text-2xl font-extrabold tracking-[-0.05em] mb-4">
         Na co se teď zaměř
       </h2>
 

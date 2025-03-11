@@ -13,7 +13,7 @@ export default function Home() {
       <ProcessMap />
       </div>
 
-      <div className="flex flex-col p-12 md:flex-row">
+      <div className="flex-col p-12">
       <Sidebar />
       </div>
     </main>

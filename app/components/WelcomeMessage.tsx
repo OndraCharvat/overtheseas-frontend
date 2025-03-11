@@ -15,10 +15,9 @@ const WelcomeMessage = () => {
   const [currentDate, setCurrentDate] = useState("");
 
   useEffect(() => {
-    // Náhodně vybere jednu zprávu
     setRandomMessage(messages[Math.floor(Math.random() * messages.length)]);
 
-    // Nastaví aktuální datum
+    // aktuální datum
     const today = new Date();
     const formattedDate = today.toLocaleDateString("cs-CZ", {
       day: "numeric",

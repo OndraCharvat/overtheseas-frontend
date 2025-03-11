@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Library } from 'lucide-react';
 import Link from 'next/link';
 
 const LoginPage: React.FC = () => {
@@ -66,7 +65,7 @@ const LoginPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Background and Decorative Elements */}
+      {/* Pictures animace*/}
       <div className="hidden lg:block lg:w-1/2 relative bg-white overflow-hidden">
         <motion.div 
           className="absolute top-20 right-20 w-60 h-60 rounded-full"
