@@ -1,6 +1,6 @@
 import TaskCard from "./TaskCard";
 
-type TasksPhasesProps = {
+type TasksProps = {
   tasks: {
     title: string;
     subtitle: string;
@@ -8,7 +8,7 @@ type TasksPhasesProps = {
   }[];
 };
 
-const TasksPhases = ({ tasks }: TasksPhasesProps) => {
+const Tasks = ({ tasks }: TasksProps) => {
   return (
     <section>
       <h2 className="text-2xl font-extrabold tracking-[-0.05em] mb-4">
@@ -29,4 +29,4 @@ const TasksPhases = ({ tasks }: TasksPhasesProps) => {
   );
 };
 
-export default TasksPhases;
+export default Tasks;

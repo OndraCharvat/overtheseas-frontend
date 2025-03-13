@@ -5,22 +5,19 @@ import Link from 'next/link';
 
 
 import { FileText, GitBranch } from 'lucide-react';
-import { useState } from 'react';
-
 export default function Dashboard() {
  
   const targetDate = "2025-03-31T00:00:00";
   
   
-  const progress = 95;
+  const progress = 100;
   const id = "id";
 
   return (
-    <div className="relative mt-12 w-full space-y-10">
-
+    <div className="relative mt-12 w-full space-y-10 ">
        <CountdownTimer targetDate={targetDate} />
 
-      <div className="bg-brightpurple rounded-2xl p-10 text-center space-y-4">
+      <div className="bg-brightpurple rounded-2xl p-10 text-center shadow-lg space-y-4">
         <div className="rounded-lg p-4">
           <h3 className="text-lg font-bold tracking-[-0.02em]">Aktuální stav procesu</h3>
           <ProgressBar progress={progress} />

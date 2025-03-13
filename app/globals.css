@@ -16,7 +16,7 @@
 
 body {
   color: var(--foreground);
-  background: white;
+  background: #fafafb;
   font-family: var(--font-poppins), sans-serif;
 }
 

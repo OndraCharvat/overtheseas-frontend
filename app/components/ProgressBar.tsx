@@ -13,18 +13,8 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
 
   return (
     <div className="flex flex-col items-center justify-center py-6">
-      <div className="relative w-32 h-32">
-        {/* Background circle */}
+      <div className="relative w-48 h-48">
         <svg className="w-full h-full rotate-[-90deg]" viewBox="0 0 110 110">
-          <circle 
-            cx="55" 
-            cy="55" 
-            r="50" 
-            fill="none" 
-            stroke="#f0f0f5" 
-            strokeWidth="8"
-          />
-          {/* Progress circle with gradient */}
           <circle 
             cx="55" 
             cy="55" 
@@ -36,12 +26,11 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
             strokeDashoffset={dashoffset}
             strokeLinecap="round"
           />
-          {/* Define the gradient */}
           <defs>
             <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#67e8f9" /> {/* Light teal */}
-              <stop offset="50%" stopColor="#3b82f6" /> {/* Blue */}
-              <stop offset="100%" stopColor="#a855f7" /> {/* Purple */}
+              <stop offset="0%" stopColor="#29ffaf" />
+              <stop offset="50%" stopColor="#3b82f6" />
+              <stop offset="100%" stopColor="#a855f7" /> 
             </linearGradient>
           </defs>
         </svg>

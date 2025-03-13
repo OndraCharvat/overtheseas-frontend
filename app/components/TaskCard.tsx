@@ -14,7 +14,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ title, subtitle, description }) => 
 
   return (
     <div
-      className="bg-purpleots text-white rounded-2xl p-6 w-full md:w-64 lg:w-72 shadow-lg cursor-pointer transition-all duration-300"
+      className="bg-purpleots text-white rounded-2xl p-6 w-full md:w-64 lg:w-72 cursor-pointer transition-all duration-300"
       onClick={() => setIsOpen(!isOpen)}
     >
       <div className="flex justify-between items-center">
@@ -27,7 +27,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ title, subtitle, description }) => 
 
       {/* Rozkliknutý popis */}
       {isOpen && description && (
-        <p className="mt-3 text-sm text-white p-3 rounded-lg shadow-md">
+        <p className="mt-3 text-sm text-white p-3 rounded-lg shadow-lg">
           {description}
         </p>
       )}

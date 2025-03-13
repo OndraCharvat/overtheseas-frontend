@@ -3,13 +3,13 @@ import TaskCard from "./TaskCard";
 
 const TaskSection = () => {
   return (
-    <section className="mt-12">
+    <section className="mt-10">
       <h2 className="text-2xl font-extrabold tracking-[-0.05em] mb-4">
         Na co se teď zaměř
       </h2>
 
       {/* Seznam úkolů */}
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap relative gap-4">
         <TaskCard
           title="Test z angličtiny"
           subtitle="IELTS"

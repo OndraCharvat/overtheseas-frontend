@@ -1,6 +1,6 @@
 import PhaseContent from "@/app/components/PhaseContent";
 import PhaseNavigationSidebar from "@/app/components/PhaseSidebar";
-import TasksPhases from "@/app/components/TasksPhases";
+import Tasks from "@/app/components/Tasks";
 
 const SectionPage = () => {
   // Simulovaná data (později bude dynamicky z DB)
@@ -42,7 +42,7 @@ const SectionPage = () => {
       {/* Obsah fáze + tasky */}
       <main className="lg:w-3/4 w-full flex flex-col gap-12">
         <PhaseContent contentPages={phase.contentPages} />
-        <TasksPhases tasks={tasks} />
+        <Tasks tasks={tasks} />
       </main>
     </div>
   );

@@ -16,7 +16,7 @@ const PhaseCard: React.FC<PhaseCardProps> = ({ title, detail }) => {
         ease: "easeInOut",         // Plynulá křivka zrychlení a zpomalení
         type: "tween"              // Lineární typ animace místo spring pro stabilnější pohyb
       }}
-      className="w-80 h-60 bg-white shadow-lg rounded-2xl p-6 flex flex-col justify-center items-center"
+      className="w-80 h-60 bg-white hover:bg-secondary shadow-lg rounded-2xl p-6 flex flex-col justify-center items-center"
     >
       <h3 className="text-xl font-bold">{title}</h3>
       <p className="text-sm text-gray-600">{detail}</p>
