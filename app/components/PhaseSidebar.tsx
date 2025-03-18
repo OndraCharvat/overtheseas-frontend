@@ -11,7 +11,7 @@ const PhaseNavigationSidebar = ({
 }: PhaseNavigationSidebarProps) => {
   return (
     <div className="bg-brightpurple rounded-2xl p-4 shadow-lg">
-      <h3 className="text-lg font-bold mb-4">Všechny fáze</h3>
+      <h2 className="text-xl font-bold mb-4">Všechny fáze</h2>
       <ul className="space-y-2">
         {phases.map((phase) => (
           <li key={phase.id}>

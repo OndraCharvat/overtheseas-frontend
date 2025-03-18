@@ -37,11 +37,11 @@ export default function DocumentsPage() {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen">
+    <div className="flex flex-col p-10 md:flex-row min-h-screen">
       {/* Sidebar */}
       <div className="w-full md:w-1/4 bg-brightpurple rounded-2xl p-4 shadow-lg">
         <h2 className="text-xl font-bold mb-4">Seznam dokumentů</h2>
-        <ul>
+        <ul className="space-y-4">
           {documents.map((doc) => (
             <li
               key={doc.id}
@@ -54,7 +54,7 @@ export default function DocumentsPage() {
         </ul>
       </div>
 
-      {/* Dokument */}
+      {/* Dokumentt */}
       <div className="w-full md:w-2/3 p-10">
         {selectedDocument ? (
           <>

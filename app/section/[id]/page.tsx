@@ -1,6 +1,7 @@
 import PhaseContent from "@/app/components/PhaseContent";
 import PhaseNavigationSidebar from "@/app/components/PhaseSidebar";
-import Tasks from "@/app/components/Tasks";
+import PhaseTasks from "@/app/components/PhaseTasks";
+import Tasks from "@/app/components/PhaseTasks";
 
 const SectionPage = () => {
   // Simulovaná data (později bude dynamicky z DB)
@@ -28,8 +29,8 @@ const SectionPage = () => {
 
   const phasesList = [
     { id: "1", title: "Fáze 1 – Příprava" },
-    { id: "2", title: "Fáze 2 – Víza a letenky" },
-    { id: "3", title: "Fáze 3 – Odlet a příjezd" },
+    { id: "2", title: "Fáze 2 – Přihláška k partnerské organizaci" },
+    { id: "3", title: "Fáze 3 – Test z angličtiny" },
   ];
 
   return (
@@ -42,7 +43,7 @@ const SectionPage = () => {
       {/* Obsah fáze + tasky */}
       <main className="lg:w-3/4 w-full flex flex-col gap-12">
         <PhaseContent contentPages={phase.contentPages} />
-        <Tasks tasks={tasks} />
+        <PhaseTasks tasks={tasks} /> 
       </main>
     </div>
   );

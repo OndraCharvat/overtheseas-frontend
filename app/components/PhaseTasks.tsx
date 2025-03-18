@@ -8,11 +8,11 @@ type TasksProps = {
   }[];
 };
 
-const Tasks = ({ tasks }: TasksProps) => {
+const PhaseTasks = ({ tasks }: TasksProps) => {
   return (
     <section>
       <h2 className="text-2xl font-extrabold tracking-[-0.05em] mb-4">
-        Na co se teď zaměřit
+      Úkoly pro tuto fázi
       </h2>
 
       <div className="flex flex-wrap gap-4">
@@ -29,4 +29,4 @@ const Tasks = ({ tasks }: TasksProps) => {
   );
 };
 
-export default Tasks;
+export default PhaseTasks;
