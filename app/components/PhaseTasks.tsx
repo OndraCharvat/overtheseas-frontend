@@ -44,8 +44,6 @@ const PhaseTasks = ({ tasks }: TasksProps) => {
             title={task.title}
             subtitle={task.subtitle}
             description={task.description}
-            isCompleted={taskStates[index]}
-            onToggle={() => handleToggle(index)}
           /> 
         ))}
       </div>
