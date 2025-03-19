@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import NavbarWrapper from "./components/NavbarWrapper";
+import QueryClientContextProvider from "./components/QueryClientContextProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,8 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.variable}>
       <body>
+      <QueryClientContextProvider>
       <NavbarWrapper />
         {children}
+        </QueryClientContextProvider>
       </body>
     </html>
   );

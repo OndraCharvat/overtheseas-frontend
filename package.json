@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.36.1",
     "autoprefixer": "^10.4.20",
+    "axios": "^1.8.3",
     "framer-motion": "^12.4.10",
     "lucide-react": "^0.476.0",
     "next": "14.2.14",

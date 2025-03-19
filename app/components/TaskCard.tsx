@@ -1,7 +1,6 @@
-// TaskCard.tsx
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Info } from "lucide-react";
 
 interface TaskCardProps {
@@ -10,8 +9,8 @@ interface TaskCardProps {
   description?: string;
 }
 
-const TaskCard: React.FC<TaskCardProps> = ({ title, subtitle, description,}) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+const TaskCard: React.FC<TaskCardProps> = ({ title, subtitle, description }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div
@@ -26,7 +25,8 @@ const TaskCard: React.FC<TaskCardProps> = ({ title, subtitle, description,}) => 
         <Info size={20} className="text-white opacity-90" />
       </div>
 
-      {isOpen && description &&(
+      {/* Rozkliknutý popis */}
+      {isOpen && description && (
         <p className="mt-3 text-sm text-white p-3 rounded-lg shadow-lg">
           {description}
         </p>

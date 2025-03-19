@@ -1,10 +1,28 @@
 "use client";
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import { handleGetProfile } from "../handlers/profileHandler";
+
+export interface Iprofile {
+  id: string;
+  firstName: string;
+  lastName: string;
+  dateOfBirth: Date;
+  address: string;
+  process: {name: string, description: string};
+  completedTasksIds: string[];
+  users: {email: string}[];
+}
 
 export default function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
 
-  // Mockovaná data - později nahradíme reálnými daty z DB
+  const profileQuery = useQuery({
+    queryKey: ["profile"],
+    queryFn: () => handleGetProfile(),
+  });
+
+
   const [userData, setUserData] = useState({
     firstName: "David",
     lastName: "Procházka",
@@ -28,8 +46,8 @@ export default function ProfilePage() {
         <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
           <div className="text-center sm:text-left">
             <h1 className="text-2xl sm:text-5xl font-bold mb-7">Můj Profil</h1>
-            <h2 className="text-lg sm:text-xl font-bold">{userData.firstName} {userData.lastName}</h2>
-            <p className="text-gray-600">{userData.email}</p>
+            <h2 className="text-lg sm:text-xl font-bold">{profileQuery.data?.firstName} {profileQuery.data?.lastName}</h2>
+            <p className="text-gray-600">{profileQuery.data?.users[0]?.email}</p>
           </div>
           <button 
             className="bg-purpleots text-white px-4 py-2 rounded-md hover:bg-secondary transition mt-4 sm:mt-0"
@@ -43,8 +61,8 @@ export default function ProfilePage() {
           <input 
             type="text" 
             name="firstName"
-            placeholder="Jméno" 
-            value={userData.firstName} 
+            placeholder={profileQuery.data?.firstName} 
+            value={profileQuery.data?.firstName} 
             onChange={handleChange}
             disabled={!isEditing} 
             className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
