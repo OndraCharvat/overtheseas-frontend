@@ -1,8 +1,6 @@
 import PhaseContent from "@/app/components/PhaseContent";
 import PhaseNavigationSidebar from "@/app/components/PhaseSidebar";
 import PhaseTasks from "@/app/components/PhaseTasks";
-import Tasks from "@/app/components/PhaseTasks";
-
 const SectionPage = () => {
   // Simulovaná data (později bude dynamicky z DB)
   const phase = {
@@ -19,11 +17,13 @@ const SectionPage = () => {
       subtitle: "IELTS",
       description:
         "Zaregistruj se na test IELTS a začni s přípravou. Minimální skóre 6.0.",
+      isCompleted: false,
     },
     {
       title: "Motivační dopis",
       subtitle: "pro hostitelskou rodinu",
       description: "Napiš dopis rodině, napiš o svých zájmech a očekáváních.",
+      isCompleted: false,
     },
   ];
 
