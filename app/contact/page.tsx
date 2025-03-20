@@ -6,11 +6,11 @@ import Image from 'next/image';
 export default function ContactPage() {
   return (
     <div className="flex min-h-screen">
-    <div className="w-full lg:w-1/2 flex items-center bg-brightpurple justify-center px-6 lg:px-16 py-12">
+    <div className="w-full lg:w-1/2 flex items-center justify-center px-6 lg:px-16 py-12">
       <div className="w-full max-w-md">
        <h1 className="text-3xl font-bold mb-6">Kontaktuj nás</h1>
       
-      <div className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-md space-y-4">
+      <div className="bg-brightpurple shadow-lg rounded-2xl p-6 w-full max-w-md space-y-4">
         <div>
         <h2 className="text-md tracking-[-0.02em] mb-2">Nevíš si s něčím rady? Dej nám vědět! 😊</h2>
 
@@ -36,7 +36,7 @@ export default function ContactPage() {
 
       </div>
     </div>
-      <div className="hidden lg:block lg:w-2/3 relative bg-brightpurple overflow-hidden">
+      <div className="hidden lg:block lg:w-2/3 relative overflow-hidden">
         <motion.div 
           className="absolute top-20 right-20 w-60 h-60 rounded-full"
           animate={{
