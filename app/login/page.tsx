@@ -65,7 +65,7 @@ const LoginPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Pictures animace*/}
+      {/* animace*/}
       <div className="hidden lg:block lg:w-1/2 relative bg-white overflow-hidden">
         <motion.div 
           className="absolute top-20 right-20 w-60 h-60 rounded-full"
@@ -145,7 +145,6 @@ const LoginPage: React.FC = () => {
             objectFit="cover" 
           />
           </motion.div> 
-
       </div>
     </div>
   );

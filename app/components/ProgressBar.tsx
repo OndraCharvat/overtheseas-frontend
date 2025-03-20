@@ -1,4 +1,5 @@
 "use client"
+import { motion } from 'framer-motion';
 import React from 'react';
 
 interface ProgressBarProps {
@@ -6,7 +7,6 @@ interface ProgressBarProps {
 }
 
 const ProgressBar = ({ progress }: ProgressBarProps) => {
-  // Calculate the circumference of the circle
   const radius = 50;
   const circumference = 2 * Math.PI * radius;
   const dashoffset = circumference - (progress / 100) * circumference;
@@ -15,7 +15,7 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
     <div className="flex flex-col items-center justify-center py-6">
       <div className="relative w-48 h-48">
         <svg className="w-full h-full rotate-[-90deg]" viewBox="0 0 110 110">
-          <circle 
+          <motion.circle 
             cx="55" 
             cy="55" 
             r="50" 
@@ -25,7 +25,11 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
             strokeDasharray={circumference} 
             strokeDashoffset={dashoffset}
             strokeLinecap="round"
+            initial={{ strokeDashoffset: 320 }}
+            animate={{ strokeDashoffset: 320 - (320 * progress) / 100 }}
+            transition={{ duration: 1.5, delay: 0.1 }}
           />
+
           <defs>
             <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#29ffaf" />
