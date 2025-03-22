@@ -24,8 +24,6 @@ export default function ProfilePage() {
 
 
   const [userData, setUserData] = useState({
-    firstName: "David",
-    lastName: "Procházka",
     email: "davidprochazka@gmail.com",
     phone: "",
     country: "United States of America 🇺🇸",
@@ -70,8 +68,8 @@ export default function ProfilePage() {
           <input 
             type="text" 
             name="lastName"
-            placeholder="Příjmení" 
-            value={userData.lastName} 
+            placeholder={profileQuery.data?.lastName}  
+            value={profileQuery.data?.lastName}  
             onChange={handleChange}
             disabled={!isEditing} 
             className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
@@ -90,6 +88,24 @@ export default function ProfilePage() {
             name="email"
             placeholder="Email" 
             value={userData.email} 
+            onChange={handleChange}
+            disabled={!isEditing} 
+            className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
+          />
+          <input 
+            type="text" 
+            name="dateOfBirth"
+            placeholder={profileQuery.data?.dateOfBirth ? new Date(profileQuery.data.dateOfBirth).toISOString().split('T')[0] : ""}  
+            value={profileQuery.data?.dateOfBirth ? new Date(profileQuery.data.dateOfBirth).toISOString().split('T')[0] : ""}  
+            onChange={handleChange}
+            disabled={!isEditing} 
+            className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
+          />
+          <input 
+            type="text" 
+            name="adress"
+            placeholder={profileQuery.data?.address}  
+            value={profileQuery.data?.address}  
             onChange={handleChange}
             disabled={!isEditing} 
             className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
