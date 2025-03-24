@@ -2,6 +2,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { handleGetProfile } from "../handlers/profileHandler";
+import { useMutation } from "@tanstack/react-query";
+import { handleUpdateProfile } from "../handlers/profileHandler";
 
 export interface Iprofile {
   id: string;
@@ -13,26 +15,63 @@ export interface Iprofile {
   completedTasksIds: string[];
   users: {email: string}[];
 }
+export interface IupdateProfile {
+  firstName?: string;
+  lastName?: string;
+  address?: string;
+}
+
 
 export default function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
+  const [userData, setUserData] = useState({
+    firstName: "",
+    lastName: "",
+    address: "",
+    email: "",
+    phone: "",
+    country: "",
+    visa: "",
+    duration: "",
+    about: "",
+    school: "",
+    host: "",
+    dateOfBirth: ""
+  });
 
   const profileQuery = useQuery({
     queryKey: ["profile"],
     queryFn: () => handleGetProfile(),
+    onSuccess: (data) => {
+      setUserData((prev) => ({
+        ...prev,
+        firstName: data.firstName || "",
+        lastName: data.lastName || "",
+        address: data.address || "",
+        email: data.users[0]?.email || prev.email,
+        dateOfBirth: data.dateOfBirth ? new Date(data.dateOfBirth).toISOString().split("T")[0] : prev.dateOfBirth
+      }));
+    }
   });
 
-
-  const [userData, setUserData] = useState({
-    email: "davidprochazka@gmail.com",
-    phone: "",
-    country: "United States of America 🇺🇸",
-    visa: "J1",
-    duration: "1 rok",
-    about: "",
-    school: "Georgetown High School",
-    host:"John Smith",
+  const updateProfileMutation = useMutation({
+    mutationFn: (updatedData: Partial<IupdateProfile>) => handleUpdateProfile(updatedData),
+    onSuccess: () => {
+      setIsEditing(false); 
+      profileQuery.refetch(); 
+    },
   });
+
+  const handleSave = () => {
+    const updatedData = {
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      address: userData.address,
+    };
+  
+    updateProfileMutation.mutate(updatedData);
+  };
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });  
@@ -44,72 +83,43 @@ export default function ProfilePage() {
         <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
           <div className="text-center sm:text-left">
             <h1 className="text-2xl sm:text-5xl font-bold mb-7">Můj Profil</h1>
-            <h2 className="text-lg sm:text-xl font-bold">{profileQuery.data?.firstName} {profileQuery.data?.lastName}</h2>
-            <p className="text-gray-600">{profileQuery.data?.users[0]?.email}</p>
+            <h2 className="text-lg sm:text-xl font-bold">{userData.firstName} {userData.lastName}</h2>
+            <p className="text-gray-600">{userData.email}</p>
           </div>
           <button 
             className="bg-purpleots text-white px-4 py-2 rounded-md hover:bg-secondary transition mt-4 sm:mt-0"
-            onClick={() => setIsEditing(!isEditing)}
+            onClick={() => {
+              if (isEditing) {
+                handleSave();
+              } else {
+                setIsEditing(true);
+            }
+          }}
           >
             {isEditing ? "Uložit" : "Upravit"}
           </button>
         </div>
       
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-14">
-          <input 
-            type="text" 
-            name="firstName"
-            placeholder={profileQuery.data?.firstName} 
-            value={profileQuery.data?.firstName} 
-            onChange={handleChange}
-            disabled={!isEditing} 
-            className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
-          />
-          <input 
-            type="text" 
-            name="lastName"
-            placeholder={profileQuery.data?.lastName}  
-            value={profileQuery.data?.lastName}  
-            onChange={handleChange}
-            disabled={!isEditing} 
-            className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
-          />
-          <input 
-            type="text" 
-            name="phone"
-            placeholder="Telefon" 
-            value={userData.phone} 
-            onChange={handleChange}
-            disabled={!isEditing} 
-            className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
-          />
-          <input 
-            type="email" 
-            name="email"
-            placeholder="Email" 
-            value={userData.email} 
-            onChange={handleChange}
-            disabled={!isEditing} 
-            className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
-          />
-          <input 
-            type="text" 
-            name="dateOfBirth"
-            placeholder={profileQuery.data?.dateOfBirth ? new Date(profileQuery.data.dateOfBirth).toISOString().split('T')[0] : ""}  
-            value={profileQuery.data?.dateOfBirth ? new Date(profileQuery.data.dateOfBirth).toISOString().split('T')[0] : ""}  
-            onChange={handleChange}
-            disabled={!isEditing} 
-            className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
-          />
-          <input 
-            type="text" 
-            name="adress"
-            placeholder={profileQuery.data?.address}  
-            value={profileQuery.data?.address}  
-            onChange={handleChange}
-            disabled={!isEditing} 
-            className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
-          />
+        {[
+            { name: "firstName", placeholder: "Jméno" },
+            { name: "lastName", placeholder: "Příjmení" },
+            { name: "address", placeholder: "Adresa" },
+            { name: "phone", placeholder: "Telefon" },
+            { name: "email", placeholder: "Email" },
+            { name: "dateOfBirth", placeholder: "Datum narození" },
+          ].map(({ name, placeholder }) => (
+            <input
+              key={name}
+              type="text"
+              name={name}
+              placeholder={placeholder}
+              value={(userData as any)[name] || ""}
+              onChange={handleChange}
+              disabled={name === "phone" || name === "email" || name === "dateOfBirth" || !isEditing}
+              className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
+            />
+          ))}
         </div>
 
  {/* Info o programu */}
@@ -123,13 +133,13 @@ export default function ProfilePage() {
         </div>
         <div className="p-4 rounded-md bg-white">
           <h3 className="text-lg font-bold mb-6">O studentovi:</h3>
-          <input 
-            type="O studentovi" 
-            name="o studentovi"
-            placeholder="Napiš něco o sobě" 
-            value={userData.about} 
+          <input
+            type="text"
+            name="about"
+            placeholder="Napiš něco o sobě"
+            value={userData.about}
             onChange={handleChange}
-            disabled={!isEditing} 
+            disabled={!isEditing}
             className={`p-3 border rounded-md w-full bg-white ${isEditing ? "border-secondary" : "border-white"}`}
           />
         </div>
