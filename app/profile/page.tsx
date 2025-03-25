@@ -4,6 +4,7 @@ import { useState } from "react";
 import { handleGetProfile } from "../handlers/profileHandler";
 import { useMutation } from "@tanstack/react-query";
 import { handleUpdateProfile } from "../handlers/profileHandler";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export interface Iprofile {
   id: string;
@@ -21,8 +22,8 @@ export interface IupdateProfile {
   address?: string;
 }
 
-
 export default function ProfilePage() {
+  const {getAccessTokenSilently, isAuthenticated, loginWithRedirect, logout} = useAuth0();
   const [isEditing, setIsEditing] = useState(false);
   const [userData, setUserData] = useState({
     firstName: "",
@@ -41,7 +42,7 @@ export default function ProfilePage() {
 
   const profileQuery = useQuery({
     queryKey: ["profile"],
-    queryFn: () => handleGetProfile(),
+    queryFn: async () => handleGetProfile(await getAccessTokenSilently()),
     onSuccess: (data) => {
       setUserData((prev) => ({
         ...prev,
@@ -86,6 +87,8 @@ export default function ProfilePage() {
             <h2 className="text-lg sm:text-xl font-bold">{userData.firstName} {userData.lastName}</h2>
             <p className="text-gray-600">{userData.email}</p>
           </div>
+          <button onClick={()=> loginWithRedirect()}>login</button>
+          <button onClick={()=> logout()}>logout</button>
           <button 
             className="bg-purpleots text-white px-4 py-2 rounded-md hover:bg-secondary transition mt-4 sm:mt-0"
             onClick={() => {
@@ -122,7 +125,6 @@ export default function ProfilePage() {
           ))}
         </div>
 
- {/* Info o programu */}
  <div className="p-4 rounded-md mb-12 bg-white">
           <h3 className="text-lg font-bold mb-6">Informace o programu:</h3>
           <p className="mb-0.5"><strong>Země Pobytu:</strong> {userData.country}</p>
@@ -135,7 +137,7 @@ export default function ProfilePage() {
           <h3 className="text-lg font-bold mb-6">O studentovi:</h3>
           <input
             type="text"
-            name="about"
+            name="o studentovi"
             placeholder="Napiš něco o sobě"
             value={userData.about}
             onChange={handleChange}
