@@ -12,7 +12,6 @@ export default function DocumentsPage() {
   const [selectedDocument, setSelectedDocument] = useState<Document | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Simulate fetching documents from a database
   useEffect(() => {
     const fetchDocuments = async () => {
       // Replace this with an actual API call to fetch documents from your database
@@ -38,7 +37,6 @@ export default function DocumentsPage() {
 
   return (
     <div className="flex flex-col p-10 md:flex-row min-h-screen">
-      {/* Sidebar */}
       <div className="w-full md:w-1/4 bg-brightpurple rounded-2xl p-4 shadow-lg">
         <h2 className="text-xl font-bold mb-4">Seznam dokumentů</h2>
         <ul className="space-y-4">
@@ -54,7 +52,6 @@ export default function DocumentsPage() {
         </ul>
       </div>
 
-      {/* Dokumentt */}
       <div className="w-full md:w-2/3 p-10">
         {selectedDocument ? (
           <>

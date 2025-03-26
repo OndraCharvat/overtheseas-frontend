@@ -23,7 +23,7 @@ export interface IupdateProfile {
 }
 
 export default function ProfilePage() {
-  const {getAccessTokenSilently, isAuthenticated, loginWithRedirect, logout} = useAuth0();
+  const {getAccessTokenSilently, isAuthenticated} = useAuth0();
   const [isEditing, setIsEditing] = useState(false);
   const [userData, setUserData] = useState({
     firstName: "",
@@ -87,8 +87,6 @@ export default function ProfilePage() {
             <h2 className="text-lg sm:text-xl font-bold">{userData.firstName} {userData.lastName}</h2>
             <p className="text-gray-600">{userData.email}</p>
           </div>
-          <button onClick={()=> loginWithRedirect()}>login</button>
-          <button onClick={()=> logout()}>logout</button>
           <button 
             className="bg-purpleots text-white px-4 py-2 rounded-md hover:bg-secondary transition mt-4 sm:mt-0"
             onClick={() => {

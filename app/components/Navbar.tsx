@@ -2,10 +2,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { FileText, User, Menu, X, PhoneIcon } from "lucide-react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const {getAccessTokenSilently, isAuthenticated, loginWithRedirect, logout} = useAuth0();
   return (
     <nav className="flex items-center justify-between p-4 shadow-md">
       <Link href="/" className="text-xl font-bold">
@@ -24,11 +25,13 @@ const Navbar = () => {
       {/* Navigation buttons */}
       <div className={`md:flex items-center gap-4 ${isOpen ? "flex flex-col absolute top-16 right-4 bg-white p-4 rounded-lg shadow-lg" : "hidden md:flex"}`}>
 
-        <Link href="/login"> 
-        <button className="bg-secondary text-white text-sm px-6 py-3 tracking-[-0.05em] font-extrabold rounded-full hover:bg-purpleots transition">
+     
+        <button onClick={()=>{ logout({ logoutParams: { returnTo: window.location.origin } });
+          setTimeout(() => loginWithRedirect(), 500);
+      }} className="bg-secondary text-white text-sm px-6 py-3 tracking-[-0.05em] font-extrabold rounded-full hover:bg-purpleots transition">
            Odhlásit se
         </button>
-        </Link>
+   
 
         <Link href="/documents">
           <button className="p-2 rounded-lg hover:bg-secondary bg-brightpurple transition flex items-center">
