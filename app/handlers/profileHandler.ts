@@ -18,6 +18,5 @@ export const handleUpdateProfile = async (data: Partial<Iprofile>) => {
       },
     })
     .then((res) => res.data);
-
   return response;
 }
