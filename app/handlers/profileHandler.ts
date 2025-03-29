@@ -10,13 +10,15 @@ export const handleGetProfile = async (token: string) => {
     return response;
 }
 
-export const handleUpdateProfile = async (data: Partial<Iprofile>) => {
-    const response = await axios.put("http://localhost:3001/profile", data, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        "Content-Type": "application/json",
-      },
-    })
-    .then((res) => res.data);
-  return response;
+export const handleUpdateProfile = async (data: Partial<Iprofile>, token: string) => {
+  const response = await axios.put("http://localhost:3001/profile", data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  })
+  .then((res) => res.data);
+
+return response;
 }
+

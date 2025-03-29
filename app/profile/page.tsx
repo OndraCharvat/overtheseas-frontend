@@ -56,10 +56,13 @@ export default function ProfilePage() {
   });
 
   const updateProfileMutation = useMutation({
-    mutationFn: (updatedData: Partial<IupdateProfile>) => handleUpdateProfile(updatedData),
+    mutationFn: async (updatedData: Partial<IupdateProfile>) => {
+      const token = await getAccessTokenSilently();
+      return handleUpdateProfile(updatedData, token);
+    },
     onSuccess: () => {
-      setIsEditing(false); 
-      profileQuery.refetch(); 
+      setIsEditing(false);
+      profileQuery.refetch();
     },
   });
 

@@ -15,21 +15,29 @@ export default function ContactPage() {
         <h2 className="text-md tracking-[-0.02em] mb-2">Nevíš si s něčím rady? Dej nám vědět! 😊</h2>
 
           <h2 className="text-xl font-bold">E-mail podpora</h2>
-          <a
-            href="mailto:podpora@overtheseas.cz"
-            className="text-purpleots hover:underline block mt-1"
-          >
+          <a href="mailto:podpora@overtheseas.cz" className="text-purpleots hover:underline block mt-1">
             podpora@overtheseas.cz
           </a>
         </div>
 
         <div>
           <h2 className="text-xl font-bold">Telefonická podpora</h2>
-          <a
-            href="tel:+420123456789"
-            className="text-purpleots hover:underline block mt-1"
-          >
+          <a href="tel:+420123456789" className="text-purpleots hover:underline block mt-1">
             +420 123 456 789
+          </a>
+        </div>
+
+        <div>
+          <h2 className="text-xl font-bold">CEO</h2>
+          <a href="mailto:ondracharvat05@gmail.com" className="text-purpleots hover:underline block mt-1">
+            ondracharvat05@gmail.com
+          </a>
+        </div>
+
+        <div>
+          <h2 className="text-xl font-bold">Top vedoucí projektu</h2>
+          <a href="mailto:oliversulc@gmail.com" className="text-purpleots hover:underline block mt-1">
+            oliversulc@gmail.com
           </a>
         </div>
       </div>
