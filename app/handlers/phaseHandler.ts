@@ -4,6 +4,7 @@ interface IPhase {
   id: string;
   title: string;
   description: string;
+  blob: string;
   tasks: {
     id: string;
     title: string;

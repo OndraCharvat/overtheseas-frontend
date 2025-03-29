@@ -5,6 +5,7 @@ interface TaskSectionProps {
   tasks?: {
     id: string;
     title: string;
+    description: string;
   }[];
   completedTasksIds?: string[];
 }
@@ -22,6 +23,7 @@ const TaskSection = ({ tasks, completedTasksIds }: TaskSectionProps) => {
             key={task.id}
             title={task.title}
             completed={completedTasksIds?.includes(task.id)}
+            description={task.description}
           />
         ))}
       </div>

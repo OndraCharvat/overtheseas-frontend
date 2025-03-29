@@ -10,6 +10,7 @@ interface ProcessMapProps {
   phases?: {
     id: string;
     title: string;
+    description: string;
   }[];
   phaseId?: string;
 }
@@ -55,7 +56,7 @@ const ProcessMap = ({ phases, phaseId }: ProcessMapProps) => {
           <ChevronLeft size={32} />
         </button>
         <Link
-          href={`/section/${phases[index]?.id}`}
+          href={`/phase/${phases[index]?.id}`}
           className={`relative w-80 h-60 md:w-80 md:h-60 sm:w-80 sm:h-60 xs:w-40 xs:h-30 flex rounded-2xl bg-secondary justify-center items-center overflow-hidden ${
             !(phases[index].id === phaseId) && "pointer-events-none"
           }`}
@@ -65,7 +66,7 @@ const ProcessMap = ({ phases, phaseId }: ProcessMapProps) => {
               key={phases[index]?.id}
               title={phases[index]?.title || "No title"}
               current={phases[index].id === phaseId}
-              detail=""
+              detail={phases[index].description}
             />
           </AnimatePresence>
         </Link>

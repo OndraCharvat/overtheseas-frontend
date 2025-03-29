@@ -20,21 +20,14 @@ const PhasePage = () => {
     },
   });
 
-  const phase = {
-    title: "Fáze 1 – Příprava",
-    contentPages: [
-      { title: "Úvod do programu", content: "Zde je text o programu..." },
-      { title: "Jak vyplnit dokumenty", content: "Návody, checklisty atd." },
-    ],
-  };
-
   return (
     <div className="flex flex-col lg:flex-row gap-8 p-4 lg:p-10">
       <main className="w-full flex flex-col gap-12">
         <h1 className="text-5xl font-semibold capitalize">
           {getPhaseQuery.data?.title}
         </h1>
-        <PhaseContent description={getPhaseQuery.data?.description} />
+        <p className="text-xl">{getPhaseQuery.data?.description}</p>
+        <PhaseContent description={getPhaseQuery.data?.blob} />
         <PhaseTasks tasks={getPhaseQuery.data?.tasks} />
       </main>
     </div>

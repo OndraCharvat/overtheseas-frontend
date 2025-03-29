@@ -15,6 +15,7 @@ export interface IDashboard {
   phases: {
     id: string;
     title: string;
+    description: string;
   }[];
   taskCount: number;
   completedTaskCount: number;
@@ -22,6 +23,7 @@ export interface IDashboard {
   currentPhaseTasks: {
     id: string;
     title: string;
+    description: string;
   }[];
   currentPhaseId: string;
 }

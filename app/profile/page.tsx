@@ -12,9 +12,14 @@ export interface Iprofile {
   lastName: string;
   dateOfBirth: Date;
   address: string;
-  process: { name: string; description: string };
+  process: { name: string; description: string; length: string };
   completedTasksIds: string[];
   users: { email: string }[];
+  destination: string;
+  visa: string;
+  host: string;
+  school: string;
+  about: string;
 }
 export interface IupdateProfile {
   firstName?: string;
@@ -31,13 +36,14 @@ export default function ProfilePage() {
     address: "",
     email: "",
     phone: "",
-    country: "",
+    destination: "",
     visa: "",
     duration: "",
     about: "",
     school: "",
     host: "",
     dateOfBirth: "",
+    length: "",
   });
 
   const profileQuery = useQuery({
@@ -53,6 +59,12 @@ export default function ProfilePage() {
         dateOfBirth: data.dateOfBirth
           ? new Date(data.dateOfBirth).toISOString().split("T")[0]
           : prev.dateOfBirth,
+        visa: data.visa,
+        destination: data.destination,
+        host: data.host,
+        school: data.school,
+        about: data.about,
+        length: data.process.length,
       }));
     },
   });
@@ -137,13 +149,13 @@ export default function ProfilePage() {
         <div className="p-4 rounded-md mb-12 bg-white">
           <h3 className="text-lg font-bold mb-6">Informace o programu:</h3>
           <p className="mb-0.5">
-            <strong>Země Pobytu:</strong> {userData.country}
+            <strong>Země Pobytu:</strong> {userData.destination}
           </p>
           <p className="mb-0.5">
             <strong>Vízum:</strong> {userData.visa}
           </p>
           <p className="mb-0.5">
-            <strong>Délka:</strong> {userData.duration}
+            <strong>Délka:</strong> {userData.length}
           </p>
           <p className="mb-0.5">
             <strong>Škola:</strong> {userData.school}

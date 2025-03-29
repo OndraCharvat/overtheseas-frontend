@@ -22,7 +22,9 @@ const PhaseCard: React.FC<PhaseCardProps> = ({ title, detail, current }) => {
       } hover:bg-secondary shadow-lg rounded-2xl p-6 flex flex-col justify-center items-center`}
     >
       <h3 className="text-xl font-bold">{title}</h3>
-      <p className="text-sm text-gray-600">{detail}</p>
+      <p className={`text-sm ${current ? "text-gray-600" : "text-slate-400"}`}>
+        {detail}
+      </p>
     </motion.div>
   );
 };

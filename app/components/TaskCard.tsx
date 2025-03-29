@@ -6,14 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface TaskCardProps {
   title: string;
-  subtitle?: string;
   description?: string;
   completed?: boolean;
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({
   title,
-  subtitle,
   description,
   completed,
 }) => {
@@ -37,12 +35,13 @@ const TaskCard: React.FC<TaskCardProps> = ({
           <div className="flex justify-between items-center">
             <div>
               <h3 className="text-lg font-bold">{title}</h3>
-              {subtitle && <p className="text-sm">{subtitle}</p>}
+              {description && <p className="text-sm">{description}</p>}
             </div>
             <Info size={20} className="text-white opacity-90" />
           </div>
         </motion.div>
       ) : (
+        //vyhodit mozna, neotaci se
         <motion.div
           key="back"
           className="bg-white text-purpleots rounded-2xl p-6 w-full md:w-64 lg:w-72 cursor-pointer transition-all duration-300"
@@ -55,7 +54,9 @@ const TaskCard: React.FC<TaskCardProps> = ({
         >
           <div className="flex flex-col h-full justify-center">
             {description && (
-              <p className="text-sm leading-relaxed">{description}</p>
+              <p className="text-sm text-purpleots leading-relaxed">
+                {description}
+              </p>
             )}
           </div>
         </motion.div>
