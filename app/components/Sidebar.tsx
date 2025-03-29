@@ -1,38 +1,56 @@
-"use client"
-import CountdownTimer from './CountdownTimer';
-import ProgressBar from './ProgressBar';
-import Link from 'next/link';
+"use client";
+import CountdownTimer from "./CountdownTimer";
+import ProgressBar from "./ProgressBar";
+import Link from "next/link";
 
+import { FileText, GitBranch } from "lucide-react";
 
-import { FileText, GitBranch } from 'lucide-react';
-export default function Dashboard() {
- 
+interface SideBarProps {
+  totalTasks?: number;
+  completedTasks?: number;
+}
+
+export default function Dashboard({
+  totalTasks,
+  completedTasks,
+}: SideBarProps) {
   const targetDate = "2025-03-31T00:00:00";
-  
-  
-  const progress = 90;
+  completedTasks = !completedTasks ? 0 : completedTasks;
+  totalTasks = !totalTasks ? 0 : totalTasks;
+
+  const progress = Math.ceil((completedTasks / totalTasks) * 100);
   const id = "id";
 
   return (
     <div className="relative mt-12 w-full space-y-10 ">
-       <CountdownTimer targetDate={targetDate} />
+      <CountdownTimer targetDate={targetDate} />
 
       <div className="bg-brightpurple rounded-2xl p-10 text-center shadow-lg space-y-4">
         <div className="rounded-lg p-4">
-          <h3 className="text-lg font-bold tracking-[-0.02em]">Aktuální stav procesu</h3>
+          <h3 className="text-lg font-bold tracking-[-0.02em]">
+            Aktuální stav procesu
+          </h3>
           <ProgressBar progress={progress} />
         </div>
-        
-        <Link href={`/section/${id}`} className="flex items-center p-6 bg-white rounded-2xl shadow-sm hover:bg-secondary transition-colors">
+
+        <Link
+          href={`/section/${id}`}
+          className="flex items-center p-6 bg-white rounded-2xl shadow-sm hover:bg-secondary transition-colors"
+        >
           <div className="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center mr-3">
             <GitBranch className="w-5 h-5 text-purpleots" />
           </div>
           <div className="flex-1">
-            <span className="font-medium tracking-[-0.05em]">Fázový proces</span>
+            <span className="font-medium tracking-[-0.05em]">
+              Fázový proces
+            </span>
           </div>
         </Link>
-        
-        <Link href="/documents" className="flex items-center p-6 bg-white rounded-2xl shadow-sm hover:bg-secondary transition-colors">
+
+        <Link
+          href="/documents"
+          className="flex items-center p-6 bg-white rounded-2xl shadow-sm hover:bg-secondary transition-colors"
+        >
           <div className="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center mr-3">
             <FileText className="w-5 h-5 text-purpleots" />
           </div>

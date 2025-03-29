@@ -1,6 +1,6 @@
-"use client"
-import { motion } from 'framer-motion';
-import React from 'react';
+"use client";
+import { motion } from "framer-motion";
+import React from "react";
 
 interface ProgressBarProps {
   progress: number;
@@ -15,14 +15,14 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
     <div className="flex flex-col items-center justify-center py-6">
       <div className="relative w-48 h-48">
         <svg className="w-full h-full rotate-[-90deg]" viewBox="0 0 110 110">
-          <motion.circle 
-            cx="55" 
-            cy="55" 
-            r="50" 
-            fill="none" 
-            stroke="url(#progressGradient)" 
-            strokeWidth="8" 
-            strokeDasharray={circumference} 
+          <motion.circle
+            cx="55"
+            cy="55"
+            r="50"
+            fill="none"
+            stroke="url(#progressGradient)"
+            strokeWidth="8"
+            strokeDasharray={circumference}
             strokeDashoffset={dashoffset}
             strokeLinecap="round"
             initial={{ strokeDashoffset: 320 }}
@@ -31,16 +31,24 @@ const ProgressBar = ({ progress }: ProgressBarProps) => {
           />
 
           <defs>
-            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient
+              id="progressGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
               <stop offset="0%" stopColor="#29ffaf" />
               <stop offset="50%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#a855f7" /> 
+              <stop offset="100%" stopColor="#a855f7" />
             </linearGradient>
           </defs>
         </svg>
         {/* Center text */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-2xl font-semibold text-gray-700">{progress.toFixed(2)}</span>
+          <span className="text-2xl font-semibold text-gray-700">
+            {`${progress.toFixed(0)} %`}
+          </span>
         </div>
       </div>
     </div>
